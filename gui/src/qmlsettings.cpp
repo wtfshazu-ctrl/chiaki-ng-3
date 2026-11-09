@@ -809,6 +809,28 @@ void QmlSettings::setMouseTouchEnabled(bool enabled)
     emit mouseTouchEnabledChanged();
 }
 
+bool QmlSettings::mouseAssistEnabled() const
+{
+    return settings->GetMouseAssistEnabled();
+}
+
+void QmlSettings::setMouseAssistEnabled(bool enabled)
+{
+    settings->SetMouseAssistEnabled(enabled);
+    emit mouseAssistEnabledChanged();
+}
+
+float QmlSettings::mouseAssistSensitivity() const
+{
+    return settings->GetMouseAssistSensitivity();
+}
+
+void QmlSettings::setMouseAssistSensitivity(float sensitivity)
+{
+    settings->SetMouseAssistSensitivity(sensitivity);
+    emit mouseAssistSensitivityChanged();
+}
+
 bool QmlSettings::keyboardEnabled() const
 {
     return settings->GetKeyboardEnabled();
@@ -1947,6 +1969,8 @@ void QmlSettings::refreshAllKeys()
     emit psnAuthTokenExpiryChanged();
     emit psnAccountIdChanged();
     emit mouseTouchEnabledChanged();
+    emit mouseAssistEnabledChanged();
+    emit mouseAssistSensitivityChanged();
     emit keyboardEnabledChanged();
     emit dpadTouchEnabledChanged();
     emit iDROnFECFailureEnabledChanged();
